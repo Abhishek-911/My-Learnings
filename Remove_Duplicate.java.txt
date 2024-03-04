@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Size of the Array: ");
+        int size = sc.nextInt();
+        int arr[] = new int[size];
+        for (int i = 0; i < size; i++) {
+            System.out.println("Enter value " + (i + 1) + " : ");
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("The Array before Sorting: ");
+        for (int i = 0; i < size; i++) {
+             System.out.print(arr[i] + " ");
+        }
+        int temp=0;
+        for(int i=0;i<size-1;i++){
+            for(int j=i+1;j<size;j++){
+                if(arr[i]>arr[j]){
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        System.out.println();
+        System.out.println("The Array after Sorting: ");
+        for (int i = 0; i < size; i++) {
+             System.out.print(arr[i] + " ");
+        }
+        int atemp[] = new int[size];
+        int j=0;
+        for(int i=0;i<size-1;i++){
+            if(arr[i]!=arr[i+1]){
+                   atemp[j++]=arr[i];
+            }
+        }
+        atemp[j++]=arr[size-1];
+        System.out.println();
+        System.out.println("The Array after removing Duplicate Elements: ");
+        for (int i = 0; i < j; i++) {
+            System.out.print(atemp[i] + " ");
+        }
+    }
+}
