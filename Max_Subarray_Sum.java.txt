@@ -1,0 +1,30 @@
+public class Main {
+    public static void main(String[] args) {
+        int nums[] = {-2, -3, 4, -2, -1, 1, 5, -3};
+        int n = nums.length;
+        int sum = 0;
+        int max = Integer.MIN_VALUE;
+        int start = 0;
+        int end = 0;
+        int s = 0;
+
+        for (int i = 0; i < n; i++) {
+            sum = sum + nums[i];
+            if (sum > max) {
+                max = sum;
+                start = s;
+                end = i;
+            }
+            if (sum < 0) {
+                sum = 0;
+                s = i + 1;
+            }
+        }
+
+        System.out.println("Maximum subarray sum: " + max);
+        System.out.print("Maximum subarray: ");
+        for (int i = start; i <= end; i++) {
+            System.out.print(nums[i] + " ");
+        }
+    }
+}
